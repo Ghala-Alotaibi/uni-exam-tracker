@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Uni Exam Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>Uni Exam Tracker</h1>
+      <p class="muted">All your Exam information to keep ypu organized </p>
+    </div>
+    <button id="themeBtn" class="btn secondary" type="button">🌙 Dark</button>
+  </header>
+
+  <main class="grid">
+    <section class="card">
+      <h2>Add exam</h2>
+
+      <form id="examForm" class="form">
+        <div class="row">
+          <label>
+            Course
+            <input id="course" required placeholder="e.g., COA" maxlength="40" />
+          </label>
+
+          <label>
+            Type
+            <select id="type">
+              <option>Quiz</option>
+              <option>Mid</option>
+              <option selected>Final</option>
+              <option>Lab</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="row">
+          <label>
+            Date & time
+            <input id="datetime" type="datetime-local" required />
+          </label>
+
+          <label>
+            Seat #
+            <input id="seat" placeholder="e.g., 14" maxlength="20" />
+          </label>
+        </div>
+
+        <div class="row">
+          <label>
+            Building
+            <input id="building" placeholder="e.g., Building A" maxlength="40" />
+          </label>
+
+          <label>
+            Room
+            <input id="room" placeholder="e.g., 203" maxlength="20" />
+          </label>
+        </div>
+
+        <label>
+          Notes (optional)
+          <input id="notes" placeholder="ID needed? Calculator allowed?" maxlength="80" />
+        </label>
+
+        <div class="row actions">
+          <button class="btn" type="submit">➕ Save exam</button>
+          <button id="clearAllBtn" class="btn danger" type="button">🗑️ Clear all</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="listHeader">
+        <h2>Upcoming</h2>
+        <div class="filters">
+          <select id="filterType">
+            <option value="all" selected>All types</option>
+            <option value="Quiz">Quiz</option>
+            <option value="Mid">Mid</option>
+            <option value="Final">Final</option>
+            <option value="Lab">Lab</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <input id="search" placeholder="Search course…" />
+        </div>
+      </div>
+
+      <div id="list" class="list"></div>
+      <p id="empty" class="muted empty">No exams yet. Add one on the left 👈</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
